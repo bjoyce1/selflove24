@@ -20,10 +20,13 @@ const StandardBody = ({ story }: { story: Story }) => (
 const LetterBody = ({ story }: { story: Story }) => (
   <div className="bg-[#f5f1ea] text-[#1a1a1a] p-8 md:p-14 max-w-[65ch] shadow-2xl">
     <p className="font-mono text-xs mb-8 opacity-60">— a letter, undated —</p>
+    {story.formatData?.letterPreamble && (
+      <p className="font-display italic text-xl mb-6">{story.formatData.letterPreamble}</p>
+    )}
     <div className="prose-story font-display" style={{ fontWeight: 400 }}>
-      {story.body.map((p, i) => <p key={i}>{p}</p>)}
+      {story.body.map((p, i) => <p key={i} className="italic">{p}</p>)}
     </div>
-    <p className="mt-10 font-display italic">— A.</p>
+    <p className="mt-10 font-display italic">{story.formatData?.letterSignoff ?? "— A."}</p>
   </div>
 );
 
@@ -36,58 +39,80 @@ const SecondPersonBody = ({ story }: { story: Story }) => (
 );
 
 const TimestampsBody = ({ story }: { story: Story }) => {
-  const times = ["05:42", "09:17", "13:30", "21:08"];
+  const blocks = story.formatData?.timestamps ?? [];
   return (
     <div className="prose-story">
-      {story.body.map((p, i) => (
-        <div key={i} className="grid grid-cols-[64px_1fr] gap-6 mb-10 pb-10 border-b border-border/40 last:border-0">
-          <span className="text-eyebrow text-muted-foreground pt-2">{times[i % times.length]}</span>
-          <p className="m-0">{p}</p>
+      {blocks.map((b, i) => (
+        <div key={i} className="grid grid-cols-[72px_1fr] gap-6 mb-10 pb-10 border-b border-border/40 last:border-0">
+          <span className="text-eyebrow text-muted-foreground pt-2 font-mono">{b.time}</span>
+          <p className="m-0">{b.text}</p>
         </div>
       ))}
+      <div className="mt-16 pt-10 border-t border-border/40">
+        {story.body.map((p, i) => (
+          <p key={i} className={i === story.body.length - 1 ? "italic" : ""} style={i === story.body.length - 1 ? { color: story.accentColor } : undefined}>
+            {p}
+          </p>
+        ))}
+      </div>
     </div>
   );
 };
 
-const InventoryBody = ({ story }: { story: Story }) => (
-  <div>
-    <div className="grid grid-cols-2 gap-8 mb-12 pb-12 border-b border-border/40">
-      <div>
-        <p className="text-eyebrow text-accent-rose mb-4">What She Took</p>
-        <ul className="font-display text-lg space-y-2">
-          {["Her grandmother's ring", "Two notebooks", "The good kitchen knife", "Her name", "A photograph"].map((x) => (
-            <li key={x} className="border-b border-border/30 pb-2">{x}</li>
-          ))}
-        </ul>
+const InventoryBody = ({ story }: { story: Story }) => {
+  const took = story.formatData?.inventoryTook ?? [];
+  const left = story.formatData?.inventoryLeft ?? [];
+  return (
+    <div>
+      <div className="grid md:grid-cols-2 gap-8 mb-12 pb-12 border-b border-border/40">
+        <div>
+          <p className="text-eyebrow text-accent-rose mb-4">What She Took</p>
+          <ul className="font-display text-lg space-y-2">
+            {took.map((x) => (
+              <li key={x} className="border-b border-border/30 pb-2">{x}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="text-eyebrow text-muted-foreground mb-4">What She Left</p>
+          <ul className="font-display text-lg space-y-2 text-muted-foreground italic">
+            {left.map((x) => (
+              <li key={x} className="border-b border-border/30 pb-2">{x}</li>
+            ))}
+          </ul>
+        </div>
       </div>
-      <div>
-        <p className="text-eyebrow text-muted-foreground mb-4">What She Left</p>
-        <ul className="font-display text-lg space-y-2 text-muted-foreground italic">
-          {["The ring he gave her", "Every apology she'd rehearsed", "His mother's china", "Her smaller voice", "The version of her he liked"].map((x) => (
-            <li key={x} className="border-b border-border/30 pb-2">{x}</li>
-          ))}
-        </ul>
+      <div className="prose-story">
+        {story.body.map((p, i) => <p key={i}>{p}</p>)}
       </div>
     </div>
-    <div className="prose-story">
-      {story.body.map((p, i) => <p key={i}>{p}</p>)}
-    </div>
-  </div>
-);
+  );
+};
 
-const BlueprintBody = ({ story }: { story: Story }) => (
-  <div className="relative">
-    <div className="absolute inset-0 blueprint-grid opacity-60 pointer-events-none -z-0" />
-    <div className="relative space-y-12">
-      {["FOUNDATION", "LOAD-BEARING WALLS", "WIRING & WATER", "ROOF"].map((header, i) => (
-        <section key={header}>
-          <p className="font-mono text-xs tracking-widest text-accent-gold mb-4">§ {String(i + 1).padStart(2, "0")} — {header}</p>
-          <p className="prose-story m-0">{story.body[i % story.body.length]}</p>
-        </section>
-      ))}
+const BlueprintBody = ({ story }: { story: Story }) => {
+  const sections = story.formatData?.blueprintSections ?? [];
+  return (
+    <div className="relative">
+      <div className="absolute inset-0 blueprint-grid opacity-60 pointer-events-none -z-0" />
+      <div className="relative space-y-12">
+        <div className="prose-story">
+          {story.body.slice(0, 3).map((p, i) => <p key={i}>{p}</p>)}
+        </div>
+        {sections.map((sec, i) => (
+          <section key={sec.header}>
+            <p className="font-mono text-xs tracking-widest text-accent-gold mb-4">§ {String(i + 1).padStart(2, "0")} — {sec.header}</p>
+            <div className="prose-story">
+              {sec.body.map((p, j) => <p key={j}>{p}</p>)}
+            </div>
+          </section>
+        ))}
+        <div className="prose-story pt-8 border-t border-border/40">
+          {story.body.slice(3).map((p, i) => <p key={i}>{p}</p>)}
+        </div>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const ManifestoBody = ({ story }: { story: Story }) => (
   <div className="text-center max-w-2xl mx-auto">
@@ -96,11 +121,10 @@ const ManifestoBody = ({ story }: { story: Story }) => (
         {p}
       </p>
     ))}
-    <div className="mt-16 pt-10 border-t border-accent-rose/40 font-display text-lg space-y-2">
-      <p>I am holding it.</p>
-      <p>I am holding it for the same reason</p>
-      <p>a lighthouse holds its light.</p>
-      <p>Because someone is still out there.</p>
+    <div className="mt-16 pt-10 border-t border-accent-rose/40 font-display text-lg space-y-3">
+      {(story.formatData?.manifestoClosing ?? []).map((line, i) => (
+        <p key={i}>{line}</p>
+      ))}
     </div>
   </div>
 );
