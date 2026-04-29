@@ -64,24 +64,70 @@ const InventoryBody = ({ story }: { story: Story }) => {
   const left = story.formatData?.inventoryLeft ?? [];
   return (
     <div>
-      <div className="grid md:grid-cols-2 gap-8 mb-12 pb-12 border-b border-border/40">
-        <div>
-          <p className="text-eyebrow text-accent-rose mb-4">What She Took</p>
-          <ul className="font-display text-lg space-y-2">
-            {took.map((x) => (
-              <li key={x} className="border-b border-border/30 pb-2">{x}</li>
+      {/* Ledger header */}
+      <div className="mb-8 flex items-baseline justify-between border-b border-foreground/30 pb-3">
+        <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+          Inventory · An accounting
+        </p>
+        <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+          {String(took.length).padStart(2, "0")} kept / {String(left.length).padStart(2, "0")} left
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x divide-border/40 mb-16 pb-12 border-b border-border/40">
+        {/* Took — forward-facing, present, claimed */}
+        <div className="md:pr-10 pb-10 md:pb-0 border-b md:border-b-0 border-border/40 mb-10 md:mb-0">
+          <div className="flex items-baseline gap-3 mb-6">
+            <span
+              className="block h-2 w-2 rounded-full"
+              style={{ background: story.accentColor }}
+              aria-hidden
+            />
+            <p className="text-eyebrow" style={{ color: story.accentColor }}>
+              What She Took
+            </p>
+          </div>
+          <ol className="space-y-4">
+            {took.map((x, i) => (
+              <li key={x} className="grid grid-cols-[2.25rem_1fr] items-baseline gap-3 group">
+                <span
+                  className="font-mono text-[11px] tracking-widest text-muted-foreground/70 tabular-nums pt-1"
+                  aria-hidden
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display text-xl md:text-2xl leading-snug text-foreground border-b border-dotted border-border/50 pb-3">
+                  {x}
+                </span>
+              </li>
             ))}
-          </ul>
+          </ol>
         </div>
-        <div>
-          <p className="text-eyebrow text-muted-foreground mb-4">What She Left</p>
-          <ul className="font-display text-lg space-y-2 text-muted-foreground italic">
-            {left.map((x) => (
-              <li key={x} className="border-b border-border/30 pb-2">{x}</li>
+
+        {/* Left — crossed off, struck through, archived */}
+        <div className="md:pl-10">
+          <div className="flex items-baseline gap-3 mb-6">
+            <span className="block h-px w-4 bg-muted-foreground/60" aria-hidden />
+            <p className="text-eyebrow text-muted-foreground">What She Left</p>
+          </div>
+          <ul className="space-y-4">
+            {left.map((x, i) => (
+              <li key={x} className="grid grid-cols-[2.25rem_1fr] items-baseline gap-3">
+                <span
+                  className="font-mono text-[11px] tracking-widest text-muted-foreground/50 tabular-nums pt-1 line-through decoration-1"
+                  aria-hidden
+                >
+                  ✕ {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-mono text-sm md:text-base uppercase tracking-wide text-muted-foreground/80 line-through decoration-muted-foreground/40 decoration-1 pb-3 border-b border-border/30">
+                  {x}
+                </span>
+              </li>
             ))}
           </ul>
         </div>
       </div>
+
       <div className="prose-story">
         {story.body.map((p, i) => <p key={i}>{p}</p>)}
       </div>
