@@ -1,5 +1,15 @@
-import portraitAmara from "@/assets/portrait-amara.jpg";
-import portraitKesha from "@/assets/portrait-kesha.jpg";
+import portraitHeartWithin from "@/assets/portraits/the-heart-within.jpg";
+import portraitMirrorOfTruth from "@/assets/portraits/the-mirror-of-truth.jpg";
+import portraitFindingHerVoice from "@/assets/portraits/finding-her-voice.jpg";
+import portraitEmbracingAuthenticity from "@/assets/portraits/embracing-authenticity.jpg";
+import portraitBreakingTheChains from "@/assets/portraits/breaking-the-chains.jpg";
+import portraitWarriorOfTheStreets from "@/assets/portraits/warrior-of-the-streets.jpg";
+import portraitStrengthInTheStruggle from "@/assets/portraits/strength-in-the-struggle.jpg";
+import portraitRiseFromTheAshes from "@/assets/portraits/rise-from-the-ashes.jpg";
+import portraitEyesOfHope from "@/assets/portraits/eyes-of-hope.jpg";
+import portraitWhispersOfSelfLove from "@/assets/portraits/whispers-of-self-love.jpg";
+import portraitBlueprintsOfTheHeart from "@/assets/portraits/blueprints-of-the-heart.jpg";
+import portraitVisionOfLove from "@/assets/portraits/vision-of-love.jpg";
 
 export type StoryFormat =
   | "standard"
