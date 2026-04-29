@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
-import portraitAmara from "@/assets/portrait-amara.jpg";
+import portraitAmara from "@/assets/portraits/the-heart-within.jpg";
 
 export const Hero = () => {
   const ref = useRef<HTMLDivElement>(null);
