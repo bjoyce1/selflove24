@@ -179,6 +179,9 @@ const StoryPage = () => {
         >
           <p className="text-eyebrow mb-6" style={{ color: story.accentColor }}>{story.name}</p>
           <h1 className="text-display-1">{story.title}</h1>
+          <p className="mt-6 font-mono text-xs tracking-widest text-muted-foreground uppercase">
+            Age {story.profile.age} · {story.profile.locale} · {story.profile.role}
+          </p>
           <p className="mt-8 font-display italic text-xl text-muted-foreground max-w-xl mx-auto">"{story.tease}"</p>
         </motion.header>
 
