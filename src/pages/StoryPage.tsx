@@ -234,8 +234,12 @@ const StoryPage = () => {
         {/* Sticky portrait + body */}
         <div className="container grid lg:grid-cols-[2fr_3fr] gap-12 lg:gap-20 items-start">
           <div className="lg:sticky lg:top-24">
-            <div className="aspect-[4/5] overflow-hidden bg-bg-secondary">
-              <img src={story.portraitUrl} alt={`Portrait of ${story.name}`} className="w-full h-full object-cover" />
+            <div className="overflow-hidden bg-bg-secondary">
+              <img
+                src={story.portraitUrl}
+                alt={`Portrait of ${story.name}`}
+                className="w-full h-auto object-contain"
+              />
             </div>
             <div className="h-px mt-6" style={{ background: story.accentColor }} />
             <p className="mt-3 text-xs text-muted-foreground font-mono">Mr. CAP · Oil on linen · 2024</p>
