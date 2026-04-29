@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
-import portraitAmara from "@/assets/portraits/the-heart-within.jpg";
+import heroBg from "@/assets/hero/self-love-hero.jpg";
 
 export const Hero = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -27,17 +27,23 @@ export const Hero = () => {
       aria-label="Hero"
     >
       <div className="sticky top-0 h-screen overflow-hidden flex items-center justify-center">
+        {/* Background mural */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={heroBg}
+            alt="Self Love mural — twelve portraits by Mr. CAP"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-background/50" />
+        </div>
+
         {/* Portrait reveal */}
         <motion.div
           style={{ y: portraitY, opacity: portraitOpacity, scale: portraitScale }}
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 pointer-events-none"
         >
-          <img
-            src={portraitAmara}
-            alt="Portrait of Amara, painted by Mr. CAP"
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </motion.div>
 
         {/* Title block */}
