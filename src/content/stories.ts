@@ -1,5 +1,15 @@
-import portraitAmara from "@/assets/portrait-amara.jpg";
-import portraitKesha from "@/assets/portrait-kesha.jpg";
+import portraitHeartWithin from "@/assets/portraits/the-heart-within.jpg";
+import portraitMirrorOfTruth from "@/assets/portraits/the-mirror-of-truth.jpg";
+import portraitFindingHerVoice from "@/assets/portraits/finding-her-voice.jpg";
+import portraitEmbracingAuthenticity from "@/assets/portraits/embracing-authenticity.jpg";
+import portraitBreakingTheChains from "@/assets/portraits/breaking-the-chains.jpg";
+import portraitWarriorOfTheStreets from "@/assets/portraits/warrior-of-the-streets.jpg";
+import portraitStrengthInTheStruggle from "@/assets/portraits/strength-in-the-struggle.jpg";
+import portraitRiseFromTheAshes from "@/assets/portraits/rise-from-the-ashes.jpg";
+import portraitEyesOfHope from "@/assets/portraits/eyes-of-hope.jpg";
+import portraitWhispersOfSelfLove from "@/assets/portraits/whispers-of-self-love.jpg";
+import portraitBlueprintsOfTheHeart from "@/assets/portraits/blueprints-of-the-heart.jpg";
+import portraitVisionOfLove from "@/assets/portraits/vision-of-love.jpg";
 
 export type StoryFormat =
   | "standard"
@@ -37,7 +47,7 @@ export const stories: Story[] = [
     tease: "She had spent years rehearsing the shape of the woman other people needed her to be.",
     excerpt: lorem.slice(0, 2).join("\n\n"),
     body: lorem,
-    portraitUrl: portraitAmara,
+    portraitUrl: portraitHeartWithin,
     accentColor: "#D4A5A5",
     format: "standard",
   },
@@ -48,7 +58,7 @@ export const stories: Story[] = [
     tease: "The mirror had grown patient, waiting for her to find her own outline again.",
     excerpt: lorem.slice(0, 2).join("\n\n"),
     body: lorem,
-    portraitUrl: portraitAmara,
+    portraitUrl: portraitMirrorOfTruth,
     accentColor: "#D4A5A5",
     format: "standard",
   },
@@ -59,7 +69,7 @@ export const stories: Story[] = [
     tease: "Your voice ain't lost. You just been loaning it out for free.",
     excerpt: lorem.slice(0, 2).join("\n\n"),
     body: lorem,
-    portraitUrl: portraitAmara,
+    portraitUrl: portraitFindingHerVoice,
     accentColor: "#C9A961",
     format: "standard",
   },
@@ -70,7 +80,7 @@ export const stories: Story[] = [
     tease: "She stopped translating herself for rooms that never asked her to stay.",
     excerpt: lorem.slice(0, 2).join("\n\n"),
     body: lorem,
-    portraitUrl: portraitAmara,
+    portraitUrl: portraitEmbracingAuthenticity,
     accentColor: "#D4A5A5",
     format: "standard",
   },
@@ -81,7 +91,7 @@ export const stories: Story[] = [
     tease: "She made an inventory of what she'd carry and what she'd finally set down.",
     excerpt: lorem.slice(0, 2).join("\n\n"),
     body: lorem,
-    portraitUrl: portraitAmara,
+    portraitUrl: portraitBreakingTheChains,
     accentColor: "#C9A961",
     format: "inventory",
   },
@@ -92,7 +102,7 @@ export const stories: Story[] = [
     tease: "Don't soft. That was the rule.",
     excerpt: lorem.slice(0, 2).join("\n\n"),
     body: lorem,
-    portraitUrl: portraitKesha,
+    portraitUrl: portraitWarriorOfTheStreets,
     accentColor: "#4A1F1F",
     format: "standard",
   },
@@ -103,7 +113,7 @@ export const stories: Story[] = [
     tease: "A day measured in small wins, hour by hour by hour.",
     excerpt: lorem.slice(0, 2).join("\n\n"),
     body: lorem,
-    portraitUrl: portraitAmara,
+    portraitUrl: portraitStrengthInTheStruggle,
     accentColor: "#D4A5A5",
     format: "timestamps",
   },
@@ -114,7 +124,7 @@ export const stories: Story[] = [
     tease: "For everyone who has lost the house and stayed alive.",
     excerpt: lorem.slice(0, 2).join("\n\n"),
     body: lorem,
-    portraitUrl: portraitKesha,
+    portraitUrl: portraitRiseFromTheAshes,
     accentColor: "#4A1F1F",
     format: "standard",
   },
@@ -125,7 +135,7 @@ export const stories: Story[] = [
     tease: "She wrote the letter she had been waiting to receive.",
     excerpt: lorem.slice(0, 2).join("\n\n"),
     body: lorem,
-    portraitUrl: portraitAmara,
+    portraitUrl: portraitEyesOfHope,
     accentColor: "#C9A961",
     format: "letter",
   },
@@ -136,7 +146,7 @@ export const stories: Story[] = [
     tease: "I am holding it for the same reason a lighthouse holds its light.",
     excerpt: lorem.slice(0, 2).join("\n\n"),
     body: lorem,
-    portraitUrl: portraitAmara,
+    portraitUrl: portraitWhispersOfSelfLove,
     accentColor: "#D4A5A5",
     format: "second-person",
   },
@@ -147,7 +157,7 @@ export const stories: Story[] = [
     tease: "Buildings are never finished.",
     excerpt: lorem.slice(0, 2).join("\n\n"),
     body: lorem,
-    portraitUrl: portraitAmara,
+    portraitUrl: portraitBlueprintsOfTheHeart,
     accentColor: "#C9A961",
     format: "blueprint",
   },
@@ -158,7 +168,7 @@ export const stories: Story[] = [
     tease: "I am holding it for the same reason a lighthouse holds its light.",
     excerpt: lorem.slice(0, 2).join("\n\n"),
     body: lorem,
-    portraitUrl: portraitAmara,
+    portraitUrl: portraitVisionOfLove,
     accentColor: "#D4A5A5",
     format: "manifesto",
   },
