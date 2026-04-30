@@ -1,4 +1,4 @@
-import mrCap from "@/assets/mr-cap.jpg";
+import mrCap from "@/assets/mr-cap.png";
 import { SEO } from "@/components/SEO";
 
 const About = () => (
