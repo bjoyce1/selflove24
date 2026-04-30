@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import mrCap from "@/assets/mr-cap.jpg";
+import mrCap from "@/assets/mr-cap.png";
 import { ArrowRight } from "lucide-react";
 
 export const AboutTeaser = () => (
