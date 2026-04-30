@@ -138,6 +138,36 @@
   }
 }
 
+/* Custom scrollbars — editorial dark theme */
+@layer base {
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--accent-rose) / 0.5) hsl(var(--bg-secondary));
+  }
+
+  /* WebKit / Chromium */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--bg-secondary));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--accent-rose) / 0.4);
+    border: 2px solid hsl(var(--bg-secondary));
+    border-radius: 9999px;
+    transition: background 300ms ease;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent-rose) / 0.75);
+  }
+  ::-webkit-scrollbar-corner {
+    background: hsl(var(--bg-secondary));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
