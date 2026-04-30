@@ -4,8 +4,24 @@ import { SEO } from "@/components/SEO";
 const About = () => (
   <>
     <SEO
-      title="About — The Self Love Project"
-      description="The story behind the stories. Mr. CAP on why he made twelve women, the girls inside them, and why each one needed her own voice."
+      title="About Mr. CAP — The Self Love Project"
+      description="Mr. CAP on the twelve women, the girls inside them, and the hard season there was no other way through."
+      type="article"
+      image="/icon-512.png"
+      canonical="https://selflove24.lovable.app/about"
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        name: "About Mr. CAP — The Self Love Project",
+        description:
+          "Mr. CAP on the twelve women, the girls inside them, and the hard season there was no other way through.",
+        url: "https://selflove24.lovable.app/about",
+        author: {
+          "@type": "Person",
+          name: "Cornelius A. Pratt",
+          alternateName: "Mr. CAP",
+        },
+      }}
     />
     <main className="pt-6 md:pt-32 pb-tabs md:pb-24">
       <header className="container max-w-3xl hidden md:block">
