@@ -48,14 +48,17 @@ const Stories = () => {
         title="The Twelve — The Self Love Project"
         description="Twelve portraits. Twelve stories. Read all twelve women of The Self Love Project."
       />
-      <main className="pt-32 pb-24">
-        <header className="container max-w-4xl text-center mb-16 md:mb-20">
+      <main className="pt-6 md:pt-32 pb-tabs md:pb-24">
+        <header className="container max-w-4xl text-center mb-16 md:mb-20 hidden md:block">
           <p className="text-eyebrow text-accent-rose mb-6">The Twelve</p>
           <h1 className="text-display-1">Each woman. Her own reckoning.</h1>
           <p className="mt-6 text-muted-foreground text-lg max-w-xl mx-auto">
             Twelve portraits painted in a single hard season. Twelve stories written so each face would have a voice of her own.
           </p>
         </header>
+        <p className="md:hidden container text-muted-foreground mb-8 mt-2">
+          Twelve portraits. Twelve voices. Read them in any order.
+        </p>
 
         {/* Format preview toggle */}
         <div className="container mb-10 md:mb-14">
