@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero/self-love-hero.jpg";
+import revealPortrait from "@/assets/portraits/whispers-of-self-love.jpg";
 
 export const Hero = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -14,9 +15,9 @@ export const Hero = () => {
   const titleY = useTransform(scrollYProgress, [0, 1], ["0%", "-180%"]);
   const titleOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.6, 0]);
 
-  const portraitY = useTransform(scrollYProgress, [0.4, 1], ["20%", "-10%"]);
-  const portraitOpacity = useTransform(scrollYProgress, [0.35, 0.85], [0, 0.55]);
-  const portraitScale = useTransform(scrollYProgress, [0.4, 1], [1.1, 1]);
+  const portraitY = useTransform(scrollYProgress, [0.3, 1], ["15%", "0%"]);
+  const portraitOpacity = useTransform(scrollYProgress, [0.3, 0.85], [0, 1]);
+  const portraitScale = useTransform(scrollYProgress, [0.3, 1], [1.15, 1]);
 
   const indicatorOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
 
@@ -41,8 +42,13 @@ export const Hero = () => {
         {/* Portrait reveal */}
         <motion.div
           style={{ y: portraitY, opacity: portraitOpacity, scale: portraitScale }}
-          className="absolute inset-0 z-0 pointer-events-none"
+          className="absolute inset-0 z-[1] pointer-events-none flex items-center justify-center"
         >
+          <img
+            src={revealPortrait}
+            alt="Whispers of Self Love — portrait by Mr. CAP"
+            className="w-full h-full object-contain"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </motion.div>
 
