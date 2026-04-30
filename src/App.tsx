@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { HelmetProvider } from "react-helmet-async";
 import { AnimatePresence } from "framer-motion";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PageTransition } from "@/components/PageTransition";
@@ -43,6 +44,7 @@ const Shell = () => {
   const isMobile = useIsMobile();
   return (
     <>
+      <ScrollToTop />
       {!isMobile && <SmoothScroll />}
       {!isMobile && <Header />}
       {isMobile && <MobileTopBar />}
