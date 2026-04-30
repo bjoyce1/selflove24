@@ -11,7 +11,7 @@ const Index = () => {
         title="The Self Love Project — Twelve Women. Twelve Stories. One Reckoning."
         description="A digital art book by Mr. CAP. Twelve portraits, twelve stories of Black women on journeys of self-discovery and healing."
       />
-      <main>
+      <main className="pb-tabs md:pb-0">
         <Hero />
         <GalleryTeaser />
         <FeaturedRead />
