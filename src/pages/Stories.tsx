@@ -53,7 +53,7 @@ const Stories = () => {
           <p className="text-eyebrow text-accent-rose mb-6">The Twelve</p>
           <h1 className="text-display-1">Each woman. Her own reckoning.</h1>
           <p className="mt-6 text-muted-foreground text-lg max-w-xl mx-auto">
-            Twelve portraits painted in a single hard season. Twelve stories written so each face would have a voice of her own.
+            Twelve portraits made in a single hard season. Twelve stories written so each face would have a voice of her own.
           </p>
         </header>
         <p className="md:hidden container text-muted-foreground mb-8 mt-2">
