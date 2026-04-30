@@ -11,7 +11,7 @@ export const AboutTeaser = () => (
       <div>
         <p className="text-eyebrow text-accent-rose mb-4">The Story Behind</p>
         <blockquote className="font-display text-2xl md:text-3xl leading-snug">
-          "I made these portraits during the hardest season of my life. Twelve faces I painted because I couldn't paint my own."
+          "I made these portraits during the hardest season of my life. Twelve faces I created because I couldn't paint my own."
         </blockquote>
         <p className="mt-6 text-muted-foreground">
           — Cornelius A. Pratt, Mr. CAP
