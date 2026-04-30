@@ -12,10 +12,10 @@ const Contact = () => {
   return (
     <>
       <SEO title="Contact — The Self Love Project" description="Send a message. Tell Cap about the woman in your life he missed." />
-      <main className="pt-32 pb-24">
+      <main className="pt-6 md:pt-32 pb-tabs md:pb-24">
         <div className="container max-w-2xl">
-          <p className="text-eyebrow text-accent-rose mb-6">Contact</p>
-          <h1 className="text-display-1 mb-6">Say something.</h1>
+          <p className="text-eyebrow text-accent-rose mb-6 hidden md:block">Contact</p>
+          <h1 className="text-display-1 mb-6 hidden md:block">Say something.</h1>
           <p className="text-muted-foreground text-lg mb-12 max-w-xl">
             Press, prints, prayers, or the woman in your life I missed — write to me here.
           </p>

@@ -9,6 +9,11 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PageTransition } from "@/components/PageTransition";
+import { MobileTabBar } from "@/components/mobile/MobileTabBar";
+import { MobileTopBar } from "@/components/mobile/MobileTopBar";
+import { PullToRefresh } from "@/components/mobile/PullToRefresh";
+import { InstallPrompt } from "@/components/mobile/InstallPrompt";
+import { useIsMobile } from "@/hooks/use-mobile";
 import Index from "./pages/Index.tsx";
 import Stories from "./pages/Stories.tsx";
 import StoryPage from "./pages/StoryPage.tsx";
@@ -34,6 +39,27 @@ const AnimatedRoutes = () => {
   );
 };
 
+const Shell = () => {
+  const isMobile = useIsMobile();
+  return (
+    <>
+      {!isMobile && <SmoothScroll />}
+      {!isMobile && <Header />}
+      {isMobile && <MobileTopBar />}
+      {isMobile ? (
+        <PullToRefresh>
+          <AnimatedRoutes />
+        </PullToRefresh>
+      ) : (
+        <AnimatedRoutes />
+      )}
+      {!isMobile && <Footer />}
+      {isMobile && <MobileTabBar />}
+      {isMobile && <InstallPrompt />}
+    </>
+  );
+};
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
@@ -41,10 +67,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <SmoothScroll />
-          <Header />
-          <AnimatedRoutes />
-          <Footer />
+          <Shell />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

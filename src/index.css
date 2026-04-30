@@ -67,15 +67,45 @@
   }
   html {
     -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
     font-feature-settings: 'ss01', 'cv11';
+    overscroll-behavior-y: none;
+  }
+  /* Native-app touch feel on mobile only */
+  @media (max-width: 767px) {
+    body {
+      -webkit-overflow-scrolling: touch;
+    }
+    a, button {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    /* Standalone (installed) — hide overflow chrome cleanly */
+    @media (display-mode: standalone) {
+      body { overscroll-behavior: none; }
+    }
   }
   ::selection {
     background: hsl(var(--accent-rose) / 0.3);
     color: hsl(var(--foreground));
+  }
+}
+
+/* Safe-area utilities */
+@layer utilities {
+  .safe-top    { padding-top: env(safe-area-inset-top); }
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+  .pb-tabs     { padding-bottom: calc(env(safe-area-inset-bottom) + 80px); }
+  .pt-mobile-page { padding-top: 0; }
+  @media (min-width: 768px) {
+    .pb-tabs { padding-bottom: 0; }
   }
 }
 

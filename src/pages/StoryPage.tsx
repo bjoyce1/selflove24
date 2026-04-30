@@ -215,7 +215,7 @@ const StoryPage = () => {
         type="article"
         jsonLd={jsonLd}
       />
-      <main className="pt-24 pb-24">
+      <main className="pt-12 md:pt-24 pb-tabs md:pb-24">
         {/* Title block */}
         <motion.header
           initial={{ opacity: 0, y: 24 }}
