@@ -28,10 +28,11 @@ export const InstallPrompt = () => {
           style={{ bottom: "calc(env(safe-area-inset-bottom) + 70px)" }}
         >
           <div className="p-4 flex items-start gap-3">
-            <div className="h-11 w-11 shrink-0 rounded-xl bg-background flex items-center justify-center border border-border">
-              <span className="font-display text-xl text-foreground">S</span>
-              <span className="absolute mt-7 h-px w-3 bg-accent-rose" />
-            </div>
+            <img
+              src="/icon-192.png"
+              alt="Self Love app icon"
+              className="h-11 w-11 shrink-0 rounded-xl border border-border object-cover"
+            />
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-foreground">Install Self Love</p>
               {isIOS && !hasNativePrompt ? (
