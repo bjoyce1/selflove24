@@ -28,7 +28,13 @@ const About = () => (
           I'm Mr. CAP. Cornelius Pratt. From Houston.
         </p>
         <p>
-          I'm a storyteller who works across mediums. Music. Digital art. Tech. Whatever the story asks for, that's what I reach for. The Self Love Project is what happened when I needed all three at once — twelve women who came out of a hard season. There was no other way through it.
+          I'm a storyteller who works across mediums. Music. Digital art. Tech. Whatever the story asks for, that's what I reach for.
+        </p>
+        <p>
+          The Self Love Project is what happened when I needed all three at once — twelve women who came out of a hard season.
+        </p>
+        <p className="font-display italic" style={{ color: "hsl(var(--accent-rose))" }}>
+          There was no other way through it.
         </p>
 
         <h2 className="text-display-2 mt-16 mb-6">Why twelve.</h2>
