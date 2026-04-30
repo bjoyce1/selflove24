@@ -242,7 +242,7 @@ const StoryPage = () => {
               />
             </div>
             <div className="h-px mt-6" style={{ background: story.accentColor }} />
-            <p className="mt-3 text-xs text-muted-foreground font-mono">Mr. CAP · Oil on linen · 2024</p>
+            <p className="mt-3 text-xs text-muted-foreground font-mono">Mr. CAP · Digital · 2024</p>
           </div>
           <article className="pt-2">
             {renderBody(story)}
