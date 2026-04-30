@@ -4,8 +4,8 @@ import { SEO } from "@/components/SEO";
 const About = () => (
   <>
     <SEO title="About — The Self Love Project" description="The story behind the stories. Mr. CAP on why he painted twelve women, and why each one needed her own voice." />
-    <main className="pt-32 pb-24">
-      <header className="container max-w-3xl">
+    <main className="pt-6 md:pt-32 pb-tabs md:pb-24">
+      <header className="container max-w-3xl hidden md:block">
         <p className="text-eyebrow text-accent-rose mb-6">About</p>
         <h1 className="text-display-1">The story behind the stories.</h1>
       </header>
