@@ -17,7 +17,7 @@ const Contact = () => {
           <p className="text-eyebrow text-accent-rose mb-6 hidden md:block">Contact</p>
           <h1 className="text-display-1 mb-6 hidden md:block">Say something.</h1>
           <p className="text-muted-foreground text-lg mb-12 max-w-xl">
-            Press, prints, prayers, or the woman in your life I missed — write to me here.
+            Press, prints, prayers, or the woman in your life I missed. Write to me here.
           </p>
           {sent ? (
             <p className="font-display italic text-2xl">Thank you. I'll read it myself.</p>
